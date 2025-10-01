@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3795957850359098055}
+  - component: {fileID: 8032788656094185786}
   m_Layer: 0
   m_Name: Left_Gap_Normal
   m_TagString: Untagged
@@ -34,6 +35,25 @@ Transform:
   - {fileID: 5100030303784196235}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8032788656094185786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162065164233781083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9740c0353ac0d341af0364060c0400c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageName: Left_Gap_Normal
+  StageType: 
+  DifficultyLevel: 0
+  CanPlace: 1
+  CanConnectWith: []
+  CannotConnectWith:
+  - Left_Normal
 --- !u!1 &804293038893866797
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4215492537711443124}
+  - component: {fileID: -5723012223894925996}
   m_Layer: 0
   m_Name: Right_Gap_Normal
   m_TagString: Untagged
@@ -34,6 +35,25 @@ Transform:
   - {fileID: 2306245343480293714}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5723012223894925996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3000598410033548644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9740c0353ac0d341af0364060c0400c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageName: Right_Gap_Normal
+  StageType: 
+  DifficultyLevel: 0
+  CanPlace: 1
+  CanConnectWith: []
+  CannotConnectWith:
+  - Right_Normal
 --- !u!1 &6058675759491876747
 GameObject:
   m_ObjectHideFlags: 0
