@@ -135,21 +135,33 @@ public class Movement : MonoBehaviour
 
     void HandleJumpInput()
     {
+        float clampedCharge = Mathf.Clamp(pressCharge, 1f, 2.5f);
+        float normalizedCharge = (clampedCharge - 1f) / (2.5f - 1f);
+        
+        RectTransform canvasRect = Torso.transform.Find("Canvas").Find("Scale").GetComponent<RectTransform>();
+        Torso.transform.Find("Canvas").rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        if (canvasRect != null)
+        {
+            Vector2 size = canvasRect.sizeDelta;
+            size.y = normalizedCharge * 200f;
+            canvasRect.sizeDelta = size;
+        }
+
         if (Input.GetKey(MovementKeys[MovementType]["Jump"]) && IsGrounded)
             {
                 if (pressing)
                 {
-                    TorsoRB.AddForce(Vector2.down * 2);
-                    pressCharge += 0.0010f;
+                    TorsoRB.AddForce(Vector2.down * 5);
+                    pressCharge += 0.0015f;
                 }
                 pressing = true;
             }
             else
             {
-                if (Input.GetKeyUp(MovementKeys[MovementType]["Jump"]) && IsGrounded)
-                {
-                    TorsoRB.AddForce(((((StrongLeft.transform.up + StrongRight.transform.up) / 2) * (jumpHeight * 2000)) * Math.Min(pressCharge, 2.5f)));
-                }
+            if (Input.GetKeyUp(MovementKeys[MovementType]["Jump"]) && IsGrounded)
+            {
+                TorsoRB.AddForce(((((StrongLeft.transform.up + StrongRight.transform.up) / 2) * (jumpHeight * 2000)) * Math.Min(pressCharge, 2.5f)));
+            }
                 pressCharge = 1f;
                 pressing = false;
             }

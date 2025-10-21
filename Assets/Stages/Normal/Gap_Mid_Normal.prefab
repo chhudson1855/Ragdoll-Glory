@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 425162702704300760}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.0874, y: 5, z: 0}
-  m_LocalScale: {x: 2, y: 19.867716, z: 1}
+  m_LocalPosition: {x: 0.0897, y: 5, z: 0}
+  m_LocalScale: {x: 2, y: 29.571367, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6730112395794052758}
@@ -146,6 +146,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gap_Mid_Normal
       objectReference: {fileID: 0}
+    - target: {fileID: 5306126195652038531, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306126195652038531, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741950117503942483, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
+      propertyPath: CanPlace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741950117503942483, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
+      propertyPath: StageName
+      value: Gap_Mid_Normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741950117503942483, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
+      propertyPath: CanConnectWith.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741950117503942483, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
+      propertyPath: 'CanConnectWith.Array.data[0]'
+      value: Gap_Normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741950117503942483, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
+      propertyPath: 'CannotConnectWith.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9033909747556638204, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
       propertyPath: CanConnectWith.Array.size
       value: 0
@@ -200,8 +228,35 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9197955661778407443, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
       insertIndex: 1
       addedObject: {fileID: 4468619893681714690}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3573268096072279339, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9211351029236440540}
   m_SourcePrefab: {fileID: 100100000, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
+--- !u!1 &1393114248615707566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3573268096072279339, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}
+  m_PrefabInstance: {fileID: 2505015563208205957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9211351029236440540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393114248615707566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57adba9fc068f414dbae15fc390ac053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageName: 
+  StageType: 
+  DifficultyLevel: 0
+  rarity: 0
+  CanPlace: 0
+  CanConnectWith: []
+  CannotConnectWith: []
 --- !u!4 &6730112395794052758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9197955661778407443, guid: e30585c941edde94c87d5c9f6eeda90c, type: 3}

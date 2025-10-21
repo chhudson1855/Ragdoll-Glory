@@ -442,7 +442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3621105686543396667}
-  - component: {fileID: 3511565894860268244}
+  - component: {fileID: 1185929358593818747}
   m_Layer: 0
   m_Name: Left_Normal
   m_TagString: Untagged
@@ -469,7 +469,7 @@ Transform:
   - {fileID: 308028422061600939}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3511565894860268244
+--- !u!114 &1185929358593818747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -478,12 +478,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8967722356862048771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9740c0353ac0d341af0364060c0400c, type: 3}
+  m_Script: {fileID: 11500000, guid: 57adba9fc068f414dbae15fc390ac053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StageName: Left_Normal
   StageType: 
   DifficultyLevel: 0
+  rarity: 0
   CanPlace: 1
   CanConnectWith: []
   CannotConnectWith:

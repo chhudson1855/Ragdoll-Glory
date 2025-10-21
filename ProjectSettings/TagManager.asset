@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Jumpable
   - Base
+  - Character
   layers:
   - Default
   - TransparentFX
