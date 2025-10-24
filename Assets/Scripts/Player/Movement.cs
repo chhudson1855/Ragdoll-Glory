@@ -152,7 +152,7 @@ public class Movement : MonoBehaviour
                 if (pressing)
                 {
                     TorsoRB.AddForce(Vector2.down * 5);
-                    pressCharge += 0.0015f;
+                    pressCharge += .5f * Time.deltaTime;
                 }
                 pressing = true;
             }

@@ -8,16 +8,16 @@ using UnityEngine.SocialPlatforms; // Add this line
 public class LevelTrigger : MonoBehaviour
 {
     public string PrefabDirectory = "Assets/Stages/Normal";
-    public List<GameObject> Prefabs = new List<GameObject>(); // Prefabs list now lives in the LevelManager
     public List<GameObject> PlacedLevels = new List<GameObject>(); // Placed levels list also lives here
     public GameObject TriggerPrefab;
     public GameObject LastGenerated;
     public StageConfig LastGeneratedConfig;
     GameObject[] itemPrefabs;
+    GameObject[] Prefabs;
 
     public void GenerateLevel(Vector3 position)
     {
-        if (Prefabs == null || Prefabs.Count == 0)
+        if (Prefabs == null || Prefabs.Length == 0)
         {
             Debug.LogWarning("No prefabs found. Make sure you find the prefabs first.");
             return;
@@ -97,51 +97,21 @@ public class LevelTrigger : MonoBehaviour
         }
     }
 
-
-    public static List<GameObject> FindAllPrefabs(string prefabDirectory)
-    {
-        List<GameObject> prefabs = new List<GameObject>();
-
-        if (!Directory.Exists(prefabDirectory))
-        {
-            Debug.LogError("Prefab directory not found: " + prefabDirectory);
-            return prefabs;
-        }
-
-        string[] filePaths = Directory.GetFiles(prefabDirectory, "*.prefab", SearchOption.AllDirectories);
-
-        foreach (string filePath in filePaths)
-        {
-            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(filePath);
-
-            if (prefab != null && prefab.GetComponent<StageConfig>().CanPlace)
-            {
-                prefabs.Add(prefab);
-            }
-            else
-            {
-                Debug.LogWarning("Failed to load prefab at: " + prefabDirectory);
-            }
-        }
-
-        Debug.Log("Found " + prefabs.Count + " prefabs in " + prefabDirectory);
-        return prefabs;
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Prefabs = FindAllPrefabs(PrefabDirectory);
+        Prefabs = Resources.LoadAll<GameObject>("Stages");
+        
         itemPrefabs = Resources.LoadAll<GameObject>("Items");
         Debug.Log(itemPrefabs.Length + " item prefabs found in Resources/Items");
-        if (Prefabs.Count == 0)
+        if (Prefabs.Length == 0)
         {
             Debug.LogWarning("No prefabs found in the specified directory: " + PrefabDirectory);
         }
 
         Vector3 levelSpawnPos = new Vector3(0, transform.position.y, 0);
             
-        for(int i = 0; i < 200; i++)
+        for(int i = 0; i < 100; i++)
         {
             GenerateLevel(new Vector3(0, -9+10, -0) + (i * new Vector3(0, 10, 0))); // Spawn new level 20 units above the trigger
         }
