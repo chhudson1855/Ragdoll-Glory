@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Reflection;
 using UnityEngine.SocialPlatforms;
+using System.Collections; 
 
 public class Weapon : MonoBehaviour
 {
@@ -62,6 +63,33 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    private IEnumerator FlashWhite(Transform parent, bool destroy)
+    {
+        if (destroy)
+        {
+            yield return new WaitForSeconds(0.1f);
+            Destroy(this.gameObject);
+        }
+        // Get all SpriteRenderers in children
+        SpriteRenderer[] sprites = parent.GetComponentsInChildren<SpriteRenderer>();
+        Color[] originalColors = new Color[sprites.Length];
+
+        // Set all to white
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            originalColors[i] = sprites[i].color;
+            sprites[i].color = Color.white;
+        }
+
+        yield return new WaitForSeconds(0.05f); // Short flash, 0.1s is usually enough
+
+        // Restore original colors
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = originalColors[i];
+        }
+    }
+
     void Shoot()
     {
         // Perform raycast from weapon's position forward
@@ -72,31 +100,38 @@ public class Weapon : MonoBehaviour
         lr.startWidth = lr.endWidth = 0.02f;
 
         // If the ray hit something, end at the hit point
-        if (hit.collider != null)
+        if (hit.collider != null && Shots > 0)
         {
             lr.SetPositions(new Vector3[] { transform.position, new Vector3(hit.point.x, hit.point.y, transform.position.z) });
 
             // Apply impact if it's a valid target
             if (hit.transform.parent != null && hit.transform.CompareTag("Player"))
             {
+                StartCoroutine(FlashWhite(hit.transform.parent, false));
+
                 hit.transform.parent.Find("Body").GetComponent<Rigidbody2D>()
                     .AddForce(-hit.normal * ImpactForce, ForceMode2D.Impulse);
+            }
+            
+            if (Shots <= 0)
+            {
+                StartCoroutine(FlashWhite(hit.transform.parent, true));
             }
         }
         else
         {
             // If no hit, draw the full-length beam
             lr.SetPositions(new[] { transform.position, transform.position - transform.right * Range });
+
+            if (Shots <= 0)
+            {
+                Destroy(this.gameObject);
+            }
         }
 
         Destroy(lr.gameObject, 0.05f); // Remove the line after a short time
 
         Shots--;
-
-        if (Shots <= 0)
-        {
-            Destroy(this.gameObject);
-        }
     }
 
 
