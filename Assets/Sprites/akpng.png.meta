@@ -103,12 +103,12 @@ TextureImporter:
       name: akpng_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 91
-        width: 650
-        height: 186
+        x: 53
+        y: 54
+        width: 223
+        height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -121,11 +121,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: akpng_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 53
+        width: 3
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9f27412d9e5b85429d0748f8498ad6c
+      internalID: -529600800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1e4f38191ed8f9544a7117b44e2e5e3f
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +157,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      akpng_0: 8529618342821367962
+      akpng_1: -529600800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

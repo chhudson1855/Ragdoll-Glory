@@ -15,6 +15,8 @@ public class Weapon : MonoBehaviour
     private float nextTimeToFire = 0f;
     public float Shots = 5;
     public bool auto = false;
+    public AudioClip Sound;
+    public AudioSource SoundSource;
 
     [Header("Charge Configuration")]
     public bool Chargeable = false;
@@ -45,6 +47,7 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         LoadVFXclass(VFXClassName);
+        SoundSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -98,6 +101,8 @@ public class Weapon : MonoBehaviour
         // Create the line
         var lr = new GameObject("ShotLine").AddComponent<LineRenderer>();
         lr.startWidth = lr.endWidth = 0.02f;
+
+        SoundSource.Play();
 
         // If the ray hit something, end at the hit point
         if (hit.collider != null && Shots > 0)
